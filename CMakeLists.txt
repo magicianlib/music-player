@@ -19,9 +19,11 @@ set(PLAYER_QML_FILES
 
     qml/Header.qml
     qml/Content.qml
-
     qml/Footer.qml
 
+    qml/footer/MusicCover.qml
+    qml/footer/MusicMetadata.qml
+    qml/footer/PlayControl.qml
 )
 
 qt_add_executable(music-player

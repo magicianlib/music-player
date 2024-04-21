@@ -3,6 +3,7 @@ import Qt5Compat.GraphicalEffects
 
 Rectangle {
     required property url imageSource
+    property real maskRadius: radius
 
     color: "transparent"
     radius: 5
@@ -19,7 +20,7 @@ Rectangle {
     Rectangle {
         id: mask
         anchors.fill: parent
-        radius: parent.radius
+        radius: maskRadius
         visible: false
     }
 
