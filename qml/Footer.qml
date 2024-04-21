@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
+import "component"
+
 Rectangle {
 
     // 歌曲封面信息
@@ -13,17 +15,18 @@ Rectangle {
             top: parent.top
             bottom: parent.bottom
         }
+
         RoundImage {
             width: 45
             height: 45
             anchors.centerIn: parent
-            imageSource: "https://p2.music.126.net/8ltR3o9R8uJ9_5Cc71cDhA==/109951162951242154.jpg"
+            imageSource: "https://p1.music.126.net/bs4wicaO87yvly7oVKBleQ==/109951165621287186.jpg"
         }
     }
 
     // 歌曲信息
     Column {
-        width: 200
+        width: 150
         anchors {
             top: parent.top
             bottom: parent.bottom
@@ -31,48 +34,67 @@ Rectangle {
         }
 
         Rectangle {
-            height: 35
-            width: 120
+            id: musicInfo
+            width: parent.width
+            height: parent.height / 2
 
-            Text {
-                id: title
-                font.bold: true
-                font.family: "Helvetica"
-                font.pointSize: 14
-                width: parent.width - artists.implicitHeight
-                text: "红昭愿红昭愿红昭愿红昭愿"
-                color: "#515151"
-                lineHeight: parent.height
-                lineHeightMode: Text.FixedHeight
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
-            }
-            Text {
-                id: artists
-                anchors.left: title.right
-                font.family: "Helvetica"
-                font.pointSize: 12
-                text: " - 音阙诗听"
-                color: "#727272"
-                lineHeight: parent.height
-                lineHeightMode: Text.FixedHeight
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
+            ScrollView {
+                anchors.fill: parent
+                clip: true
+
+                ScrollBar.horizontal: ScrollBar {
+                    policy: ScrollBar.AlwaysOff
+                }
+
+                Row {
+                    spacing: 5
+                    Text {
+                        id: title
+
+                        color: "#515151"
+                        font.bold: true
+                        font.family: "Helvetica"
+                        font.pointSize: 14
+
+                        lineHeight: musicInfo.height
+                        lineHeightMode: Text.FixedHeight
+                        verticalAlignment: Text.AlignVCenter
+
+                        text: "念山海"
+                    }
+
+                    Text {
+                        id: artists
+
+                        color: "#727272"
+                        font.bold: true
+                        font.family: "Helvetica"
+                        font.pointSize: 12
+
+                        lineHeight: musicInfo.height
+                        lineHeightMode: Text.FixedHeight
+                        verticalAlignment: Text.AlignVCenter
+
+                        text: "尹昔眠（小田音乐社）"
+                    }
+                }
             }
         }
         Rectangle {
-            height: 25
+            height: parent.height / 2
             width: parent.width
             Text {
-                width: parent.width
+                id: time
+
+                color: "#727272"
                 font.family: "Helvetica"
                 font.pointSize: 12
-                text: "00:00 / 02:53"
-                color: "#727272"
+
                 lineHeight: parent.height
                 lineHeightMode: Text.FixedHeight
                 verticalAlignment: Text.AlignTop
-                elide: Text.ElideRight
+
+                text: "00:00 / 02:53"
             }
         }
     }
@@ -108,11 +130,5 @@ Rectangle {
             height: parent.height
             color: "green"
         }
-    }：
-
-    // Rectangle {
-    //     width: 60
-    //     height: parent.height
-    //     color: "yellow"
-    // }
+    }
 }

@@ -15,11 +15,13 @@ set(PLAYER_SRC
 set(PLAYER_QML_FILES
     qml/App.qml
 
+    qml/component/RoundImage.qml
+
     qml/Header.qml
     qml/Content.qml
+
     qml/Footer.qml
 
-    qml/RoundImage.qml
 )
 
 qt_add_executable(music-player

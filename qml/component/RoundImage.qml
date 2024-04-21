@@ -4,7 +4,7 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
     required property url imageSource
 
-    color: "#000"
+    color: "transparent"
     radius: 5
 
     Image {
