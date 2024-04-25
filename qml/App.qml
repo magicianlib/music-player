@@ -2,10 +2,18 @@ import QtQuick
 import QtQuick.Layouts
 
 Window {
-    minimumWidth: 1000
-    minimumHeight: 670
+    width: 1050
+    height: 720
+    minimumWidth: width
+    maximumWidth: width
+    minimumHeight: height
+    maximumHeight: height
     visible: true
     title: qsTr("网抑云")
+
+    onWidthChanged: {
+        console.log(width)
+    }
 
     // 头部
     Header {
@@ -35,7 +43,9 @@ Window {
     // 底部
     Footer {
         id: footer
-        height: 60
+        height: 80
+
+        // anchors.bottom: parent.bottom
         anchors {
             bottom: parent.bottom
             left: parent.left

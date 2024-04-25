@@ -1,4 +1,3 @@
-//
 
 /**
  * 音乐元数据信息
@@ -8,68 +7,37 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 Column {
-    Rectangle {
-        id: metadata
+    Text {
+        id: title
+        color: "#515151"
         width: parent.width
-        height: 35
+        elide: Text.ElideRight
 
-        ScrollView {
-            anchors.fill: parent
-            clip: true
+        font.bold: true
+        font.pointSize: 12
+        font.family: "Helvetica"
 
-            ScrollBar.horizontal: ScrollBar {
-                policy: ScrollBar.AlwaysOff
-            }
+        lineHeight: parent.height / 2
+        lineHeightMode: Text.FixedHeight
+        verticalAlignment: Text.AlignBottom
 
-            Row {
-                spacing: 5
-                Text {
-                    id: title
-
-                    color: "#515151"
-                    font.bold: true
-                    font.family: "Helvetica"
-                    font.pointSize: 14
-
-                    lineHeight: metadata.height
-                    lineHeightMode: Text.FixedHeight
-                    verticalAlignment: Text.AlignVCenter
-
-                    text: "念山海"
-                }
-
-                Text {
-                    id: artists
-
-                    color: "#727272"
-                    font.bold: true
-                    font.family: "Helvetica"
-                    font.pointSize: 12
-
-                    lineHeight: metadata.height
-                    lineHeightMode: Text.FixedHeight
-                    verticalAlignment: Text.AlignVCenter
-
-                    text: "尹昔眠（小田音乐社）"
-                }
-            }
-        }
+        text: "念山海"
     }
-    Rectangle {
-        height: 25
+
+    Text {
+        id: artists
+        color: "#727272"
         width: parent.width
-        Text {
-            id: time
+        elide: Text.ElideRight
 
-            color: "#727272"
-            font.family: "Helvetica"
-            font.pointSize: 12
+        font.bold: true
+        font.pointSize: 10
+        font.family: "Helvetica"
 
-            lineHeight: parent.height
-            lineHeightMode: Text.FixedHeight
-            verticalAlignment: Text.AlignTop
+        lineHeight: parent.height / 2
+        lineHeightMode: Text.FixedHeight
+        verticalAlignment: Text.AlignTop
 
-            text: "00:00 / 02:53"
-        }
+        text: "尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）"
     }
 }

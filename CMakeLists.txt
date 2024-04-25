@@ -15,7 +15,7 @@ set(PLAYER_SRC
 set(PLAYER_QML_FILES
     qml/App.qml
 
-    qml/component/RoundImage.qml
+    qml/component/Turntable.qml
 
     qml/Header.qml
     qml/Content.qml

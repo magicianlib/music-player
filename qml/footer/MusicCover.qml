@@ -13,7 +13,7 @@ Item {
     property real imgWidth: width
     property real imgHeight: height
 
-    RoundImage {
+    Turntable {
         width: imgWidth
         height: imgHeight
         anchors.centerIn: parent
