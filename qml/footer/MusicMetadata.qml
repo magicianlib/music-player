@@ -1,12 +1,14 @@
-
-/**
- * 音乐元数据信息
- */
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
+
+/**
+ * 音乐元数据信息
+ */
 Column {
+    spacing: 0
+
     Text {
         id: title
         color: "#515151"
@@ -14,13 +16,8 @@ Column {
         elide: Text.ElideRight
 
         font.bold: true
-        font.pointSize: 12
-        font.family: "Helvetica"
-
-        lineHeight: parent.height / 2
-        lineHeightMode: Text.FixedHeight
-        verticalAlignment: Text.AlignBottom
-
+        font.pointSize: 15
+        font.family: app.defaultFont
         text: "念山海"
     }
 
@@ -31,13 +28,8 @@ Column {
         elide: Text.ElideRight
 
         font.bold: true
-        font.pointSize: 10
-        font.family: "Helvetica"
-
-        lineHeight: parent.height / 2
-        lineHeightMode: Text.FixedHeight
-        verticalAlignment: Text.AlignTop
-
+        font.pointSize: 14
+        font.family: app.defaultFont
         text: "尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）"
     }
 }

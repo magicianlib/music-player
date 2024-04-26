@@ -10,9 +10,8 @@ Item {
     // 歌曲封面信息
     Turntable {
         id: cover
-        width: 60
-        height: 60
-        maskDiameter: 40
+        diameter: 60
+        outerRing: 20
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         anchors.leftMargin: 30
@@ -21,8 +20,8 @@ Item {
 
     // 音乐元数据信息
     MusicMetadata {
+        id: metadata
         width: 150
-        height: parent.height
         anchors.left: cover.right
         anchors.leftMargin: 10
         anchors.verticalCenter: parent.verticalCenter

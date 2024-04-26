@@ -21,7 +21,7 @@ set(PLAYER_QML_FILES
     qml/Content.qml
     qml/Footer.qml
 
-    qml/footer/MusicCover.qml
+
     qml/footer/MusicMetadata.qml
     qml/footer/PlayControl.qml
 )

@@ -1,11 +1,11 @@
-
-/**
- * 播放控制
- */
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
+
+/**
+ * 播放控制
+ */
 Item {
     // 上一曲
     Rectangle {

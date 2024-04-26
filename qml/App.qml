@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 Window {
+    id: app
     width: 1050
     height: 720
     minimumWidth: width
@@ -10,6 +11,17 @@ Window {
     maximumHeight: height
     visible: true
     title: qsTr("网抑云")
+
+    property string defaultFont: defaultFount()
+
+    function defaultFount() {
+        if (Qt.platform.os === "osx") {
+            return "PingFang SC"
+        } else {
+            // windows
+            return "Microsoft YaHei"
+        }
+    }
 
     onWidthChanged: {
         console.log(width)
