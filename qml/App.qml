@@ -12,7 +12,8 @@ Window {
     visible: true
     title: qsTr("网抑云")
 
-    property string defaultFont: defaultFount()
+    readonly property string defaultFont: defaultFount()
+    readonly property int defaultFontSize: 15
 
     function defaultFount() {
         if (Qt.platform.os === "osx") {

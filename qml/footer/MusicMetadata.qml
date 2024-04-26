@@ -16,8 +16,8 @@ Column {
         elide: Text.ElideRight
 
         font.bold: true
-        font.pointSize: 15
         font.family: app.defaultFont
+        font.pointSize: app.defaultFontSize
         text: "念山海"
     }
 
@@ -28,8 +28,8 @@ Column {
         elide: Text.ElideRight
 
         font.bold: true
-        font.pointSize: 14
         font.family: app.defaultFont
-        text: "尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）尹昔眠（小田音乐社）"
+        font.pointSize: app.defaultFontSize - 2
+        text: "尹昔眠（小田音乐社）"
     }
 }
