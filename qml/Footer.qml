@@ -1,11 +1,15 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Controls.Basic
+import Qt5Compat.GraphicalEffects
 
 import "footer"
 import "component"
 
-Item {
+Rectangle {
+
+    color: "#fafafa"
 
     // 歌曲封面信息
     Turntable {
@@ -30,9 +34,24 @@ Item {
     // 播放控制
     Rectangle {
         width: 400
-        anchors.centerIn: parent
         height: parent.height
-        color: "red"
+        anchors.centerIn: parent
+
+        Column {
+            anchors.fill: parent
+            Rectangle {
+                height: 50
+                width: parent.width
+                color: "green"
+            }
+
+            spacing: 10
+
+            PlayProgressBar {
+                width: parent.width
+                duration: 300
+            }
+        }
     }
     // PlayControl {
     //     anchors.centerIn: parent

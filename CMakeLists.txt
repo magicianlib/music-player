@@ -24,6 +24,7 @@ set(PLAYER_QML_FILES
 
     qml/footer/MusicMetadata.qml
     qml/footer/PlayControl.qml
+    qml/footer/PlayProgressBar.qml
 )
 
 qt_add_executable(music-player

@@ -3,12 +3,8 @@ import QtQuick.Layouts
 
 Window {
     id: app
-    width: 1050
-    height: 720
-    minimumWidth: width
-    maximumWidth: width
-    minimumHeight: height
-    maximumHeight: height
+    minimumWidth: 1050
+    minimumHeight: 720
     visible: true
     title: qsTr("网抑云")
 
@@ -20,7 +16,7 @@ Window {
             return "PingFang SC"
         } else {
             // windows
-            return "Microsoft YaHei"
+            return "Microsoft YaHei UI"
         }
     }
 
@@ -57,8 +53,6 @@ Window {
     Footer {
         id: footer
         height: 80
-
-        // anchors.bottom: parent.bottom
         anchors {
             bottom: parent.bottom
             left: parent.left

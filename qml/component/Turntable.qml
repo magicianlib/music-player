@@ -12,6 +12,8 @@ Rectangle {
     // 唱盘外环宽度（黑色绝缘部分）
     required property real outerRing
 
+    readonly property real cdDiameter: diameter - outerRing
+
     color: "black"
 
     width: diameter
@@ -21,8 +23,8 @@ Rectangle {
 
     Image {
         id: img
-        width: diameter - outerRing
-        height: diameter - outerRing
+        width: cdDiameter
+        height: cdDiameter
         anchors.centerIn: parent
         fillMode: Image.PreserveAspectCrop
         source: imageSource
@@ -32,9 +34,9 @@ Rectangle {
 
     Rectangle {
         id: mask
-        width: diameter - outerRing
-        height: diameter - outerRing
-        radius: (diameter - outerRing) / 2
+        width: cdDiameter
+        height: cdDiameter
+        radius: cdDiameter / 2
         anchors.centerIn: parent
         antialiasing: true
         visible: false
