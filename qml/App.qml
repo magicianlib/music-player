@@ -9,20 +9,20 @@ Window {
     title: qsTr("网抑云")
 
     readonly property string defaultFont: defaultFount()
-    readonly property int defaultFontSize: 15
+    readonly property int fontSize: 12 * Screen.devicePixedRatio
+    readonly property int largeFontSize: 15 * Screen.devicePixedRatio
 
     function defaultFount() {
-        if (Qt.platform.os === "osx") {
-            return "PingFang SC"
-        } else {
-            // windows
-            return "Microsoft YaHei UI"
-        }
+        return Qt.platform.os === "osx" ? "PingFang SC" : "Microsoft YaHei UI"
     }
 
-    onWidthChanged: {
-        console.log(width)
+    function changeFontSize() {
+        fontSize = 12 * Screen.devicePixedRatio
+        largeFontSize = 15 * Screen.devicePixedRatio
     }
+
+    onWidthChanged: changeFontSize()
+    onHeightChanged: changeFontSize()
 
     // 头部
     Header {
