@@ -40,7 +40,6 @@ Window {
     // 内容区域
     Content {
         id: content
-        color: "teal"
         anchors {
             top: header.bottom
             bottom: footer.top

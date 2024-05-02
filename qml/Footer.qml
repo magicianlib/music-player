@@ -36,26 +36,20 @@ Rectangle {
         width: 400
         height: parent.height
         anchors.centerIn: parent
+        color: "transparent"
 
         Column {
-            anchors.fill: parent
-            Rectangle {
-                height: 50
-                width: parent.width
-                color: "green"
-            }
-
             spacing: 10
-
+            width: parent.width
+            anchors.centerIn: parent
+            PlayControl {
+                height: 30
+                width: parent.width
+            }
             PlayProgressBar {
                 width: parent.width
                 duration: 300
             }
         }
     }
-    // PlayControl {
-    //     anchors.centerIn: parent
-    //     width: 500
-    //     height: parent.height
-    // }
 }

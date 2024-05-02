@@ -27,8 +27,13 @@ set(PLAYER_QML_FILES
     qml/footer/PlayProgressBar.qml
 )
 
+qt_add_resources(PLAYER_RESOURCES
+    images.qrc
+)
+
 qt_add_executable(music-player
     ${PLAYER_SRC}
+    ${PLAYER_RESOURCES}
 )
 
 qt_add_qml_module(music-player

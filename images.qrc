@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/next.png</file>
+        <file>images/pause.png</file>
+        <file>images/play.png</file>
+        <file>images/prev.png</file>
+        <file>images/sidebar/featured.png</file>
+        <file>images/sidebar/podcast.png</file>
+        <file>images/sidebar/community.png</file>
+        <file>images/sidebar/community-h.png</file>
+        <file>images/sidebar/featured-h.png</file>
+        <file>images/sidebar/podcast-h.png</file>
+    </qresource>
+</RCC>

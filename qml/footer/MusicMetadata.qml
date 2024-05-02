@@ -15,7 +15,7 @@ Column {
         width: parent.width
         elide: Text.ElideRight
 
-        font.family: app.defaultFont
+        // font.family: app.defaultFont
         font.pixelSize: app.largeFontSize
         text: "念山海"
     }
@@ -26,7 +26,7 @@ Column {
         width: parent.width
         elide: Text.ElideRight
 
-        font.family: app.defaultFont
+        // font.family: app.defaultFont
         font.pixelSize: app.fontSize
         text: "尹昔眠（小田音乐社）"
     }
