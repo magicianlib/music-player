@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 
+import "app"
+
 Window {
     id: app
     minimumWidth: 1050
@@ -38,13 +40,24 @@ Window {
     }
 
     // 内容区域
-    Content {
-        id: content
-        anchors {
-            top: header.bottom
-            bottom: footer.top
-            left: parent.left
-            right: parent.right
+    RowLayout {
+        anchors.top: header.bottom
+        anchors.bottom: footer.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        clip: true
+        spacing: 0
+
+        // 侧边栏
+        Sidebar {
+            Layout.preferredWidth: 200
+            Layout.fillHeight: true
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            color: "red"
         }
     }
 

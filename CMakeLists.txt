@@ -15,16 +15,17 @@ set(PLAYER_SRC
 set(PLAYER_QML_FILES
     qml/App.qml
 
-    qml/component/Turntable.qml
+    qml/common/Turntable.qml
 
-    qml/Header.qml
-    qml/Content.qml
-    qml/Footer.qml
+    qml/app/Header.qml
+    qml/app/Sidebar.qml
+    qml/app/Footer.qml
 
+    qml/app/sidebar/Delegate.qml
 
-    qml/footer/MusicMetadata.qml
-    qml/footer/PlayControl.qml
-    qml/footer/PlayProgressBar.qml
+    qml/app/footer/MusicMetadata.qml
+    qml/app/footer/PlayControl.qml
+    qml/app/footer/PlayProgressBar.qml
 )
 
 qt_add_resources(PLAYER_RESOURCES
