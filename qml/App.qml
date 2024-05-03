@@ -3,6 +3,7 @@ import QtQuick.Layouts
 
 import "app"
 
+// import "app/content"
 Window {
     id: app
     minimumWidth: 1050
@@ -10,9 +11,9 @@ Window {
     visible: true
     title: qsTr("网抑云")
 
-    readonly property string defaultFont: defaultFount()
-    readonly property int fontSize: 12 * Screen.devicePixedRatio
-    readonly property int largeFontSize: 15 * Screen.devicePixedRatio
+    property string defaultFont: defaultFount()
+    property int fontSize: 12 * Screen.devicePixedRatio
+    property int largeFontSize: 15 * Screen.devicePixedRatio
 
     function defaultFount() {
         return Qt.platform.os === "osx" ? "PingFang SC" : "Microsoft YaHei UI"
@@ -53,12 +54,27 @@ Window {
         Sidebar {
             Layout.preferredWidth: 200
             Layout.fillHeight: true
+            onCurrentQmlSource: function (qmlSource) {
+                console.log("currentItem change:", qmlSource)
+            }
         }
-        Rectangle {
+
+        Loader {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "red"
+            asynchronous: true
+            source: "app/content/Featured.qml"
         }
+
+        // Rectangle {
+        //     Layout.fillWidth: true
+        //     Layout.fillHeight: true
+        //     color: "red"
+        //     Featured {
+        //         Layout.fillWidth: true
+        //         Layout.fillHeight: true
+        //     }
+        // }
     }
 
     // 底部

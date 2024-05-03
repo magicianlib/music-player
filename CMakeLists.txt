@@ -16,12 +16,16 @@ set(PLAYER_QML_FILES
     qml/App.qml
 
     qml/common/Turntable.qml
+    qml/common/RoundImage.qml
+    qml/app/content/BannerView.qml
 
     qml/app/Header.qml
     qml/app/Sidebar.qml
     qml/app/Footer.qml
 
     qml/app/sidebar/Delegate.qml
+
+    qml/app/content/Featured.qml
 
     qml/app/footer/MusicMetadata.qml
     qml/app/footer/PlayControl.qml
