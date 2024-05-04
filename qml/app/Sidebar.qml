@@ -1,11 +1,15 @@
+// Sidebar.qml
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
 import "sidebar"
 
+/**
+ * 侧边栏
+ */
 Rectangle {
-    signal currentQmlSource(string qmlSource)
+    signal changeQmlSource(string qmlSource)
 
     color: "#f0f3f6"
 
@@ -17,28 +21,27 @@ Rectangle {
             ListElement {
                 title: "云音乐精选"
                 icon: "qrc:/images/sidebar/featured.png"
-                iconHight: "qrc:/images/sidebar/featured-h.png"
+                iconHighlight: "qrc:/images/sidebar/featured-h.png"
                 qmlSource: ""
             }
             ListElement {
                 title: "博客"
                 icon: "qrc:/images/sidebar/podcast.png"
-                iconHight: "qrc:/images/sidebar/podcast-h.png"
+                iconHighlight: "qrc:/images/sidebar/podcast-h.png"
                 qmlSource: ""
             }
             ListElement {
                 title: "社区"
                 icon: "qrc:/images/sidebar/community.png"
-                iconHight: "qrc:/images/sidebar/community-h.png"
+                iconHighlight: "qrc:/images/sidebar/community-h.png"
                 qmlSource: ""
             }
         }
         delegate: Delegate {}
         onCurrentItemChanged: {
-            if (!currentItem) {
-                return
+            if (!!currentItem) {
+                changeQmlSource(currentItem.qmlSource)
             }
-            currentQmlSource(currentItem.qmlSource)
         }
     }
 }

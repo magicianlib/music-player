@@ -5,18 +5,20 @@ import QtQuick.Layouts
 Item {
     required property int index
     required property url icon
-    required property url iconHight
+    required property url iconHighlight
     required property string title
 
     id: item
     height: 45
     width: listView.width
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
             listView.currentIndex = index
         }
     }
+
     Rectangle {
         anchors.fill: parent
         anchors.leftMargin: 20
@@ -31,7 +33,7 @@ Item {
                 Layout.alignment: Qt.AlignVCenter
                 Layout.preferredWidth: 24
                 Layout.preferredHeight: 24
-                source: listView.currentIndex === index ? item.iconHight : item.icon
+                source: listView.currentIndex === index ? item.iconHighlight : item.icon
                 fillMode: Image.PreserveAspectFit
             }
             Text {

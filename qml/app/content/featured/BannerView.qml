@@ -1,10 +1,13 @@
+// 顶部Banner轮播 BannerView.qml
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
-import "../../common"
+import "../../../common"
 
 PathView {
+    property bool isLastIndex: currentIndex === (count - 1)
+
     id: bannerView
 
     clip: true
@@ -48,10 +51,7 @@ PathView {
         anchors.bottomMargin: 5
         anchors.bottom: bannerView.bottom
         anchors.horizontalCenter: bannerView.horizontalCenter
-
-        onCurrentIndexChanged: {
-            bannerView.currentIndex = currentIndex
-        }
+        onCurrentIndexChanged: bannerView.currentIndex = currentIndex
 
         delegate: Component{
             Rectangle{
@@ -115,7 +115,7 @@ PathView {
             x: bannerView.width / 4
             y: bannerView.height / 2
         }
-        PathAttribute {name: "z"; value: 2}
+        PathAttribute {name: "z"; value: 1}
         PathAttribute {name: "scale"; value: 0.85}
         PathAttribute {name: "opacity"; value: 0.8}
 
@@ -123,7 +123,7 @@ PathView {
             x: bannerView.width / 2
             y: bannerView.height / 2
         }
-        PathAttribute {name: "z"; value: 4}
+        PathAttribute {name: "z"; value: 2}
         PathAttribute {name: "scale"; value: 1}
         PathAttribute {name: "opacity"; value: 1}
 
@@ -131,7 +131,7 @@ PathView {
             x: bannerView.width / 4 * 3
             y: bannerView.height / 2
         }
-        PathAttribute {name: "z"; value: 2}
+        PathAttribute {name: "z"; value: 1}
         PathAttribute {name: "scale"; value: 0.85}
         PathAttribute {name: "opacity"; value: 0.8}
 
@@ -155,10 +155,10 @@ PathView {
         running: !mouseArea.containsMouse
         interval: 3000
         onTriggered: {
-            if ((bannerView.currentIndex + 1) < bannerView.count) {
-                ++bannerView.currentIndex;
-            } else {
+            if (bannerView.isLastIndex) {
                 bannerView.currentIndex = 0
+            } else {
+                ++bannerView.currentIndex;
             }
         }
     }

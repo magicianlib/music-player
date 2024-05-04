@@ -1,17 +1,19 @@
+// Turntable.qml
 import QtQuick
 import Qt5Compat.GraphicalEffects
 
+/**
+ * 唱盘
+ */
 Rectangle {
-    required property url imageSource
-    // 唱盘直径
-    required property real diameter
-    // 唱盘外环宽度（黑色绝缘部分）
-    required property real outerRing
+    property url imageSource
+    required property real diameter // 唱盘直径
+    required property real outerRing // 唱盘外环宽度（黑色绝缘部分）
+    readonly property real cdDiameter: (diameter - outerRing)
 
-    readonly property real cdDiameter: diameter - outerRing
+    property alias rotating: animation.running // 旋转
 
     color: "black"
-
     width: diameter
     height: diameter
     radius: diameter / 2
@@ -39,9 +41,19 @@ Rectangle {
     }
 
     OpacityMask {
+        id: opacityMask
         source: img
         maskSource: mask
         anchors.fill: mask
         antialiasing: true
+    }
+
+    RotationAnimation {
+        id: animation
+        target: opacityMask
+        duration: 15000
+        loops: Animation.Infinite
+        from: opacityMask.rotation
+        to: opacityMask.rotation + 360
     }
 }

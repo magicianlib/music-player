@@ -1,12 +1,14 @@
+// 播放控制 PlayControl.qml
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
-
-/**
- * 播放控制
- */
 Item {
+    signal playPrevMusic()
+    signal changePlayingStatus(bool playing)
+    signal playNextMusic()
+
+    // 上一曲
     Item {
         id: prev
         width: parent.height
@@ -31,28 +33,34 @@ Item {
                 prevCtrl.height = 16
                 prevCtrl.width = 16
             }
+            onClicked: playPrevMusic()
         }
     }
 
+    // 播放&暂停
     Item {
+        property bool playing: false
+
         id: player
         width: parent.height
         height: parent.height
         anchors.centerIn: parent
+
         Image {
             id: playerCtrl
-            property bool playing: false
+            width: 28
             height: 28
             anchors.centerIn: parent
-            width: 28
-            source: playing ? "qrc:/images/footer/pause.png" : "qrc:/images/footer/play.png"
+            source: parent.playing ? "qrc:/images/footer/pause.png" : "qrc:/images/footer/play.png"
             fillMode: Image.PreserveAspectCrop
         }
+
         MouseArea {
             hoverEnabled: true
             anchors.fill: parent
             onClicked: {
-                playerCtrl.playing = !playerCtrl.playing
+                parent.playing = !parent.playing
+                changePlayingStatus(parent.playing)
             }
             onEntered: {
                 playerCtrl.height = 26
@@ -64,6 +72,8 @@ Item {
             }
         }
     }
+
+    // 下一曲
     Item {
         id: next
         width: parent.height
@@ -89,6 +99,7 @@ Item {
                 nextCtrl.height = 16
                 nextCtrl.width = 16
             }
+            onClicked: playNextMusic()
         }
     }
 }

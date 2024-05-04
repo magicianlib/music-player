@@ -10,6 +10,8 @@ qt_standard_project_setup(REQUIRES 6.5)
 
 set(PLAYER_SRC
     src/Main.cpp
+    src/HttpClient.h
+    src/HttpClient.cpp
 )
 
 set(PLAYER_QML_FILES
@@ -17,7 +19,6 @@ set(PLAYER_QML_FILES
 
     qml/common/Turntable.qml
     qml/common/RoundImage.qml
-    qml/app/content/BannerView.qml
 
     qml/app/Header.qml
     qml/app/Sidebar.qml
@@ -25,7 +26,15 @@ set(PLAYER_QML_FILES
 
     qml/app/sidebar/Delegate.qml
 
+    # 云音乐精选
     qml/app/content/Featured.qml
+    # Banner 轮播
+    qml/app/content/featured/BannerView.qml
+    # 新歌速递
+    qml/app/content/featured/NewSong.qml
+    qml/app/content/featured/MusicCard.qml
+    # 热门电台
+    qml/app/content/featured/PopularRadioStation.qml
 
     qml/app/footer/MusicMetadata.qml
     qml/app/footer/PlayControl.qml

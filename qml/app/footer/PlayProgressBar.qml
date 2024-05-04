@@ -1,3 +1,4 @@
+// 播放进度条 PlayProgressBar.qml
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -6,12 +7,13 @@ import Qt5Compat.GraphicalEffects
 
 ProgressBar {
     required property real duration
+    signal changeValue(real value)
 
     id: progressBar
 
     from: 0
     to: duration
-    value: 159.4
+    value: 0
 
     // 背景
     background: Rectangle {
@@ -61,8 +63,7 @@ ProgressBar {
 
     MouseArea {
         property bool mousePressAndMove: false
-        // 是否显示进度条进度提示
-        property bool showProgressTip: containsMouse | mousePressAndMove
+        property bool showProgressTip: containsMouse | mousePressAndMove // 是否显示进度条进度提示
 
         id: mouseArea
         anchors.fill: parent
@@ -93,6 +94,8 @@ ProgressBar {
 
             // 拖拽时改变进度条进度(值为鼠标位置与进度条宽度占比)
             progressBar.value = mouseX / progressBar.width * progressBar.to
+
+            changeValue(progressBar.value)
         }
     }
 }

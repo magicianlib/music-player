@@ -3,7 +3,6 @@ import QtQuick.Layouts
 
 import "app"
 
-// import "app/content"
 Window {
     id: app
     minimumWidth: 1050
@@ -42,39 +41,28 @@ Window {
 
     // 内容区域
     RowLayout {
+        spacing: 0
         anchors.top: header.bottom
         anchors.bottom: footer.top
         anchors.left: parent.left
         anchors.right: parent.right
 
-        clip: true
-        spacing: 0
-
         // 侧边栏
         Sidebar {
             Layout.preferredWidth: 200
             Layout.fillHeight: true
-            onCurrentQmlSource: function (qmlSource) {
+            onChangeQmlSource: function (qmlSource) {
                 console.log("currentItem change:", qmlSource)
             }
         }
 
+        //  显示内容
         Loader {
             Layout.fillWidth: true
             Layout.fillHeight: true
             asynchronous: true
             source: "app/content/Featured.qml"
         }
-
-        // Rectangle {
-        //     Layout.fillWidth: true
-        //     Layout.fillHeight: true
-        //     color: "red"
-        //     Featured {
-        //         Layout.fillWidth: true
-        //         Layout.fillHeight: true
-        //     }
-        // }
     }
 
     // 底部

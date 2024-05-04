@@ -1,10 +1,10 @@
+// 圆角图片 RoundImage.qml
 import QtQuick
 import Qt5Compat.GraphicalEffects
 
 Item {
     required property url imageSource
     property real imageRadius: 5
-
 
     Image {
         id: img
