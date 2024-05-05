@@ -13,8 +13,8 @@ Column {
         color: "#515151"
         width: parent.width
         elide: Text.ElideRight
-        // font.family: app.defaultFont
-        font.pixelSize: 0
+        font.family: app.defaultFont
+        font.pointSize: app.fontSize
         text: title
     }
 
@@ -22,10 +22,8 @@ Column {
         color: "#727272"
         width: parent.width
         elide: Text.ElideRight
-
-        // font.family: app.defaultFont
-        font.pixelSize: app.fontSize
-        // text: "尹昔眠（小田音乐社）"
+        font.family: app.defaultFont
+        font.pointSize: app.smallFontSize
         text: artist
     }
 }

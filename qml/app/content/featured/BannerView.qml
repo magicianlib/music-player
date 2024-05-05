@@ -32,10 +32,8 @@ PathView {
             z: PathView.z
             scale: PathView.scale
             opacity: PathView.opacity
-
             width: bannerView.width / 2
             height: bannerView.height
-
             imageRadius: 10
             imageSource: imgUrl
         }
@@ -43,16 +41,13 @@ PathView {
 
     PageIndicator{
         id: indicator
-
         z: 10
         count: bannerView.count
-
         interactive: true
         anchors.bottomMargin: 5
         anchors.bottom: bannerView.bottom
         anchors.horizontalCenter: bannerView.horizontalCenter
         onCurrentIndexChanged: bannerView.currentIndex = currentIndex
-
         delegate: Component{
             Rectangle{
                 width: 20

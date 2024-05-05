@@ -48,7 +48,8 @@ Item {
                 clip: true
                 width: parent.width
                 elide: Text.ElideRight
-                font.pixelSize: 16
+                // font.family: app.defaultFont
+                font.pointSize: app.largeFontSize
                 text: subject
                 color: "#423e3e"
             }
@@ -56,7 +57,8 @@ Item {
                 clip: true
                 width: parent.width
                 elide: Text.ElideRight
-                font.pixelSize: 14
+                // font.family: app.defaultFont
+                font.pointSize: app.fontSize
                 text: subtitle
                 color: "#847f7f"
             }
@@ -64,7 +66,6 @@ Item {
     }
 
     DropShadow {
-        id: dropShadow
         source: card
         anchors.fill: parent
         horizontalOffset: 0
@@ -72,7 +73,6 @@ Item {
         radius: 12
         color: "#25000000"
         smooth: true
-        antialiasing: true
         transparentBorder: true
         visible: mouseArea.containsMouse
     }

@@ -48,16 +48,17 @@ Rectangle {
 
     HttpClient {
         id: client
-        onOnFinish: function(data){
-            var json = JSON.parse(data)
-            var radios =  json.djRadios
-
-            for (var idx in radios) {
-                station.listModel.append({
-                     "artist": radios[idx].name,
-                     "title": radios[idx].rcmdtext,
-                     "imageUrl": radios[idx].picUrl
-                 })
+        onNotify: function(result){
+            if (result) {
+                var data = JSON.parse(result)
+                var jsonArr =  data.djRadios
+                for (var idx in jsonArr) {
+                    station.listModel.append({
+                         "artist": jsonArr[idx].name,
+                         "title": jsonArr[idx].rcmdtext,
+                         "imageUrl": jsonArr[idx].picUrl
+                     })
+                }
             }
         }
     }

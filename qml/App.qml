@@ -11,16 +11,22 @@ Window {
     title: qsTr("网抑云")
 
     property string defaultFont: defaultFount()
-    property int fontSize: 12 * Screen.devicePixedRatio
-    property int largeFontSize: 15 * Screen.devicePixedRatio
+    property int fontSize: 14 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+    property int smallFontSize: 12 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+    property int largeFontSize: 16 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+
+    Component.onCompleted: {
+        console.log(Screen.devicePixedRatio)
+    }
 
     function defaultFount() {
         return Qt.platform.os === "osx" ? "PingFang SC" : "Microsoft YaHei UI"
     }
 
     function changeFontSize() {
-        fontSize = 12 * Screen.devicePixedRatio
-        largeFontSize = 15 * Screen.devicePixedRatio
+        fontSize = 14 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+        smallFontSize = 12 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+        largeFontSize = 16 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
     }
 
     onWidthChanged: changeFontSize()

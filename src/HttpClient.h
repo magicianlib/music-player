@@ -1,27 +1,25 @@
 #ifndef HTTPCLIENT_H
 #define HTTPCLIENT_H
 
-#include <QObject>
 #include <QNetworkAccessManager>
+#include <QObject>
 
-class HttpClient : public QObject
-{
+class HttpClient : public QObject {
     Q_OBJECT
-public:
-    explicit HttpClient(QObject *parent = nullptr);
+
+  public:
+    explicit HttpClient(QObject* parent = nullptr);
 
     Q_INVOKABLE void popularRadioStation();
 
-signals:
-    void onFinish(QByteArray data);
+  public slots:
+    void finish(QNetworkReply* reply);
 
-protected slots:
-  void finish(QNetworkReply* reply);
+  signals:
+    void notify(QByteArray data);
 
-private:
-
-
+  private:
     QNetworkAccessManager* manager_{};
 };
 
-#endif // HTTPCLIENT_H
+#endif  // HTTPCLIENT_H

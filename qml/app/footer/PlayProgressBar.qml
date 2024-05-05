@@ -24,41 +24,22 @@ ProgressBar {
     }
 
     // 进度条样式
-    contentItem: Item {
-        Rectangle {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            width: progressBar.visualPosition * parent.width
-            color: "#fc3d49"
-            radius: 2
-        }
+    contentItem: Rectangle {
+        radius: 2
+        color: "#fc3d49"
+        width: progressBar.visualPosition * parent.width
     }
 
     // 进度球
     Rectangle {
         z: 1
+        y: (parent.height / 2) * -1
         x: progressBar.visualPosition * parent.width - width / 2
-
         width: 10
         height: 10
         radius: 5
-
-        color: "#FFFFFF"
-        antialiasing: true
+        color: "red"
         visible: mouseArea.showProgressTip
-        anchors.verticalCenter: parent.verticalCenter
-
-        // 阴影效果
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 0
-            verticalOffset: 0
-            color: "#80000000"
-            samples: 2
-            antialiasing: true
-        }
     }
 
     MouseArea {

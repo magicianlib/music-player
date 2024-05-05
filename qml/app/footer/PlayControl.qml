@@ -48,8 +48,8 @@ Item {
 
         Image {
             id: playerCtrl
-            width: 28
-            height: 28
+            width: 32
+            height: 32
             anchors.centerIn: parent
             source: parent.playing ? "qrc:/images/footer/pause.png" : "qrc:/images/footer/play.png"
             fillMode: Image.PreserveAspectCrop
@@ -63,12 +63,12 @@ Item {
                 changePlayingStatus(parent.playing)
             }
             onEntered: {
-                playerCtrl.height = 26
-                playerCtrl.width = 26
+                playerCtrl.height = 30
+                playerCtrl.width = 30
             }
             onExited: {
-                playerCtrl.height = 28
-                playerCtrl.width = 28
+                playerCtrl.height = 32
+                playerCtrl.width = 32
             }
         }
     }
