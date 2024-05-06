@@ -28,6 +28,7 @@ PathView {
     delegate: Component {
         RoundImage {
             required property url imgUrl
+            required property int index
 
             z: PathView.z
             scale: PathView.scale
@@ -36,6 +37,19 @@ PathView {
             height: bannerView.height
             imageRadius: 10
             imageSource: imgUrl
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    if (parent.index !== bannerView.currentIndex) {
+                        bannerView.currentIndex = parent.index
+                    }
+                }
+                onWheel: function(wheel) {
+                    console.log(wheel.angleDelta)
+                }
+            }
         }
     }
 
@@ -56,6 +70,7 @@ PathView {
                 color: indicator.currentIndex === index ? "red" : "#c6c0c0"
                 MouseArea {
                     anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
                     onClicked: {
                         indicator.currentIndex = index
                     }

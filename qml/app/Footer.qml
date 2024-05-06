@@ -76,21 +76,21 @@ Item {
                 }
             }
         }
+    }
 
-        MediaPlayer {
-            id: mediaplayer
-            loops: MediaPlayer.Infinite
-            audioOutput: AudioOutput {}
-            source: "http://example-media.ituknown.cn/%E6%A7%91%E6%A7%91MEIMEI%E4%B9%90%E9%98%9F%20-%20%E6%88%91%E6%9B%BE%E8%AF%85%E5%92%92%E4%BD%A0.mp3"
-            Component.onCompleted: {
-                progressBar.duration = mediaplayer.duration
-            }
-            onMediaStatusChanged: {
-            }
-            onPositionChanged: {
-                if (!!mediaplayer.position) {
-                    progressBar.value = mediaplayer.position
-                }
+    MediaPlayer {
+        id: mediaplayer
+        loops: MediaPlayer.Infinite
+        audioOutput: AudioOutput {}
+        source: "http://example-media.ituknown.cn/%E6%A7%91%E6%A7%91MEIMEI%E4%B9%90%E9%98%9F%20-%20%E6%88%91%E6%9B%BE%E8%AF%85%E5%92%92%E4%BD%A0.mp3"
+        Component.onCompleted: {
+            progressBar.duration = mediaplayer.duration
+        }
+        onMediaStatusChanged: {
+        }
+        onPositionChanged: {
+            if (!!mediaplayer.position) {
+                progressBar.value = mediaplayer.position
             }
         }
     }
