@@ -38,7 +38,7 @@ set(PLAYER_QML_FILES
 
     qml/app/footer/MusicMetadata.qml
     qml/app/footer/PlayControl.qml
-    qml/app/footer/PlayProgressBar.qml
+    qml/app/footer/Progress.qml
 )
 
 qt_add_resources(PLAYER_RESOURCES

@@ -10,5 +10,7 @@
         <file>images/footer/pause.png</file>
         <file>images/footer/play.png</file>
         <file>images/footer/prev.png</file>
+        <file>images/footer/voice.png</file>
+        <file>images/footer/voice-close.png</file>
     </qresource>
 </RCC>
