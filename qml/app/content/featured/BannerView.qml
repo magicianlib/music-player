@@ -44,16 +44,15 @@ PathView {
                 onClicked: {
                     if (parent.index !== bannerView.currentIndex) {
                         bannerView.currentIndex = parent.index
+                    } else {
+                        console.log("TODO: open link or play music...")
                     }
-                }
-                onWheel: function(wheel) {
-                    console.log(wheel.angleDelta)
                 }
             }
         }
     }
 
-    PageIndicator{
+    PageIndicator {
         id: indicator
         z: 10
         count: bannerView.count
@@ -64,6 +63,7 @@ PathView {
         onCurrentIndexChanged: bannerView.currentIndex = currentIndex
         delegate: Component{
             Rectangle{
+                required property int index
                 width: 20
                 height: 5
                 radius: 5
