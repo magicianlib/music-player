@@ -7,7 +7,7 @@ Column {
     required property string title
     required property string artist
 
-    spacing: 0
+    spacing: 2
 
     Text {
         color: "#515151"

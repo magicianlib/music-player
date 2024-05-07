@@ -30,8 +30,8 @@ Rectangle {
             anchors.right: parent.right
 
             BannerView {
-                height: 200
                 Layout.fillWidth: true
+                Layout.preferredHeight: 200
             }
 
             NewSong{
