@@ -48,8 +48,7 @@ Item {
                 clip: true
                 width: parent.width
                 elide: Text.ElideRight
-                // font.family: app.defaultFont
-                font.pointSize: app.largeFontSize
+                font.pixelSize: app.fontSize
                 text: subject
                 color: "#423e3e"
             }
@@ -57,8 +56,7 @@ Item {
                 clip: true
                 width: parent.width
                 elide: Text.ElideRight
-                // font.family: app.defaultFont
-                font.pointSize: app.fontSize
+                font.pixelSize: app.smallFontSize
                 text: subtitle
                 color: "#847f7f"
             }

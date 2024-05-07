@@ -14,7 +14,7 @@ Column {
         width: parent.width
         elide: Text.ElideRight
         font.family: app.defaultFont
-        font.pointSize: app.fontSize
+        font.pixelSize: app.fontSize
         text: title
     }
 
@@ -23,7 +23,7 @@ Column {
         width: parent.width
         elide: Text.ElideRight
         font.family: app.defaultFont
-        font.pointSize: app.smallFontSize
+        font.pixelSize: app.smallFontSize
         text: artist
     }
 }
