@@ -42,7 +42,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        // 播放控制
+        // 播放控制按钮
         Item {
             width: 400
             height: parent.height
@@ -65,9 +65,9 @@ Item {
                     }
                 }
 
-                // 进度条
+                // 音乐进度条
                 Progress {
-                    id: progressBar
+                    id: musicProgressBar
                     height: 5
                     width: parent.width
                     radius: height / 2
@@ -87,31 +87,35 @@ Item {
             anchors.right: parent.right
             anchors.rightMargin: 30
             anchors.verticalCenter: parent.verticalCenter
+
+            // 声音Icon
             Image {
-                property bool close: false
-                property real lastPercentage
+                property bool mute: false
+                property real percentageBeforeMute
 
                 id: voiceIcon
                 width: 24
                 height: 24
                 fillMode: Image.PreserveAspectCrop
                 verticalAlignment: Qt.AlignHCenter
-                source: close ? "qrc:/images/footer/voice-close.png" : "qrc:/images/footer/voice.png"
+                source: mute ? "qrc:/images/footer/voice-close.png" : "qrc:/images/footer/voice.png"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        parent.close = !parent.close;
-                        if (parent.close) {
-                            parent.lastPercentage = volumeControl.percentage
-                            voice.volume = volumeControl.percentage = 0
+                        voiceIcon.mute = !voiceIcon.mute;
+                        if (voiceIcon.mute) {
+                            voiceIcon.percentageBeforeMute = volumeProgressBar.percentage
+                            audio.volume = volumeProgressBar.percentage = 0
                         } else {
-                            voice.volume = volumeControl.percentage = parent.lastPercentage
+                            audio.volume = volumeProgressBar.percentage = voiceIcon.percentageBeforeMute
                         }
                     }
                 }
             }
+
+            // 音量控制条
             Progress {
-                id: volumeControl
+                id: volumeProgressBar
                 anchors.verticalCenter: parent.verticalCenter
                 width: 120
                 height: 5
@@ -120,8 +124,8 @@ Item {
                 backgroundColor: "#e5e6e8"
                 foregroundColor: "#fc3d49"
                 onChangePercentage: {
-                    voiceIcon.close = percentage === 0
-                    voice.volume = percentage
+                    voiceIcon.mute = percentage === 0
+                    audio.volume = percentage
                 }
             }
         }
@@ -131,15 +135,13 @@ Item {
         id: mediaplayer
         loops: MediaPlayer.Infinite
         audioOutput: AudioOutput {
-            id: voice
-            volume: volumeControl.percentage
+            id: audio
+            volume: volumeProgressBar.percentage
         }
         source: "http://example-media.ituknown.cn/%E6%A7%91%E6%A7%91MEIMEI%E4%B9%90%E9%98%9F%20-%20%E6%88%91%E6%9B%BE%E8%AF%85%E5%92%92%E4%BD%A0.mp3"
-        Component.onCompleted: {
-        }
         onPositionChanged: {
-            if (position) {
-                progressBar.percentage = position / duration
+            if (mediaplayer.position) {
+                musicProgressBar.percentage =mediaplayer.position / mediaplayer.duration
             }
         }
     }

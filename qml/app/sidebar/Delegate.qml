@@ -46,7 +46,7 @@ Item {
                 verticalAlignment: Text.AlignVCenter
 
                 lineHeight: height
-                font.pixelSize: 14
+                font.pixelSize: app.fontSize
                 font.bold: listView.currentIndex === index
 
                 color: listView.currentIndex === index ? "#ffffff" : "#707070"

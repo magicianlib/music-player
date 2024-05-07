@@ -13,7 +13,6 @@ Column {
         color: "#515151"
         width: parent.width
         elide: Text.ElideRight
-        font.family: app.defaultFont
         font.pixelSize: app.fontSize
         text: title
     }
@@ -22,7 +21,6 @@ Column {
         color: "#727272"
         width: parent.width
         elide: Text.ElideRight
-        font.family: app.defaultFont
         font.pixelSize: app.smallFontSize
         text: artist
     }

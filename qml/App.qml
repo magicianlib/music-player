@@ -10,31 +10,22 @@ Window {
     visible: true
     title: qsTr("网抑云")
 
-    property string defaultFont: defaultFount()
-    property int fontSize: 14 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
-    property int smallFontSize: 12 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
-    property int largeFontSize: 16 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
+    property int fontSize
+    property int smallFontSize
+    property int largeFontSize
 
-    Component.onCompleted: {
-        console.log(Screen.devicePixedRatio)
+    property real devicePixedRatio: Screen.devicePixelRatio
+
+    onDevicePixedRatioChanged: {
+        fontSize = 14 * devicePixedRatio
+        smallFontSize = 12 * devicePixedRatio
+        largeFontSize = 16 * devicePixedRatio
     }
-
-    function defaultFount() {
-        return Qt.platform.os === "osx" ? "PingFang SC" : "Microsoft YaHei UI"
-    }
-
-    function changeFontSize() {
-        fontSize = 14 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
-        smallFontSize = 12 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
-        largeFontSize = 16 * (Screen.devicePixedRatio ? Screen.devicePixedRatio : 1)
-    }
-
-    onWidthChanged: changeFontSize()
-    onHeightChanged: changeFontSize()
 
     // 头部
     Header {
         id: header
+        z: 99
         height: 50
         anchors {
             top: parent.top
